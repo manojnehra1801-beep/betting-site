@@ -1,72 +1,175 @@
-<header>
+<section class="sports-section">
 
-<div class="logo">
-🏆 BETPAY
+<div class="category-title">
+🔥 Live Sports
 </div>
 
-<div class="auth-buttons">
+<div class="sport-tabs">
+<button class="active">Football</button>
+<button>Cricket</button>
+<button>Tennis</button>
+<button>Basketball</button>
+<button>Kabaddi</button>
+</div>
 
-<a href="/login" class="login-btn">
-Login
-</a>
+<div class="match-card">
 
-<a href="/signup" class="signup-btn">
-Sign Up
-</a>
+<div class="league">
+UEFA Champions League
+</div>
+
+<div class="teams">
+<div>
+FC Barcelona
+</div>
+
+<div>
+Manchester City
+</div>
+</div>
+
+<div class="time">
+LIVE • 67'
+</div>
+
+<div class="odds">
+
+<button>
+Home
+<br>
+2.30
+</button>
+
+<button>
+Draw
+<br>
+3.40
+</button>
+
+<button>
+Away
+<br>
+2.95
+</button>
 
 </div>
 
-</header>
+</div>
 
-<style>
+<div class="match-card">
 
-header{
-background:#161b22;
+<div class="league">
+International Cricket
+</div>
+
+<div class="teams">
+<div>
+🇮🇳 India
+</div>
+
+<div>
+🏴 England
+</div>
+</div>
+
+<div class="time">
+LIVE • 12.4 Overs
+</div>
+
+<div class="odds">
+
+<button>
+India
+<br>
+2.00
+</button>
+
+<button>
+Draw
+<br>
+8.50
+</button>
+
+<button>
+England
+<br>
+5.00
+</button>
+
+</div>
+
+</div>
+
+</section>
+.sports-section{
+padding:20px;
+}
+
+.category-title{
+font-size:24px;
+font-weight:bold;
+margin-bottom:15px;
+}
+
+.sport-tabs{
+display:flex;
+overflow:auto;
+gap:10px;
+margin-bottom:20px;
+}
+
+.sport-tabs button{
+padding:10px 18px;
+border:none;
+border-radius:30px;
+background:#222;
+color:#fff;
+font-weight:bold;
+white-space:nowrap;
+}
+
+.sport-tabs .active{
+background:#FFD700;
+color:#000;
+}
+
+.match-card{
+background:#1b1b1b;
 padding:18px;
+border-radius:16px;
+margin-bottom:18px;
+}
+
+.league{
+color:#FFD700;
+margin-bottom:12px;
+font-weight:bold;
+}
+
+.teams{
 display:flex;
 justify-content:space-between;
-align-items:center;
-position:sticky;
-top:0;
-z-index:1000;
-box-shadow:0 3px 10px rgba(0,0,0,.4);
+font-size:20px;
+margin-bottom:12px;
 }
 
-.logo{
-font-size:28px;
-font-weight:bold;
-color:#FFD700;
+.time{
+color:#00ff66;
+margin-bottom:15px;
 }
 
-.auth-buttons{
+.odds{
 display:flex;
 gap:10px;
 }
 
-.login-btn{
-text-decoration:none;
-background:#00E5FF;
-color:#000;
-padding:10px 20px;
-border-radius:25px;
+.odds button{
+flex:1;
+padding:15px;
+background:#111;
+border:1px solid #333;
+border-radius:12px;
+color:#fff;
+font-size:16px;
 font-weight:bold;
-transition:.3s;
 }
-
-.signup-btn{
-text-decoration:none;
-background:#FFD700;
-color:#000;
-padding:10px 20px;
-border-radius:25px;
-font-weight:bold;
-transition:.3s;
-}
-
-.login-btn:hover,
-.signup-btn:hover{
-transform:scale(1.05);
-opacity:.9;
-}
-
-</style>
