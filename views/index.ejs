@@ -345,18 +345,58 @@ England<br>5.00
 
 <div class="bottom">
 
-<div>🏠<br>Home</div>
+<a href="/" class="nav-item">
+    <div>🏠</div>
+    <div>Home</div>
+</a>
 
-<div>⚽<br>Sports</div>
+<a href="/history" class="nav-item">
+    <div>📜</div>
+    <div>History</div>
+</a>
 
-<div>🎫<br>My Bets</div>
+<a href="/bonus" class="nav-item">
+    <div>🎁</div>
+    <div>Bonus</div>
+</a>
 
-<div>🎁<br>Bonus</div>
-
-<div>👤<br>Profile</div>
+<a href="/profile" class="nav-item">
+    <div>👤</div>
+    <div>Profile</div>
+</a>
 
 </div>
 
-</body>
+<style>
+.bottom{
+position:fixed;
+left:0;
+bottom:0;
+width:100%;
+height:70px;
+background:#161b22;
+display:flex;
+justify-content:space-around;
+align-items:center;
+border-top:1px solid #333;
+z-index:9999;
+}
 
-</html>
+.nav-item{
+flex:1;
+height:100%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-decoration:none;
+color:#fff;
+font-size:14px;
+font-weight:bold;
+}
+
+.nav-item:hover{
+color:#FFD700;
+background:#202833;
+}
+</style>
