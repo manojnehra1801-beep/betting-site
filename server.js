@@ -4,13 +4,20 @@ const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Middleware
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.static(path.join(__dirname, "public")));
+
+// View Engine
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-app.use(express.static(path.join(__dirname, "public")));
-app.use(express.urlencoded({ extended: true }));
+/* ===========================
+   ROUTES
+=========================== */
 
-// Home Page
+// Home
 app.get("/", (req, res) => {
     res.render("index");
 });
@@ -20,21 +27,75 @@ app.get("/login", (req, res) => {
     res.render("login");
 });
 
+// Login Form
+app.post("/login", (req, res) => {
+    const { email, password } = req.body;
+
+    console.log(email, password);
+
+    res.redirect("/");
+});
+
 // Signup Page
 app.get("/signup", (req, res) => {
     res.render("signup");
 });
 
-// Login Form
-app.post("/login", (req, res) => {
-    res.send("Login Successful");
-});
-
 // Signup Form
 app.post("/signup", (req, res) => {
-    res.send("Signup Successful");
+
+    const {
+        name,
+        mobile,
+        state,
+        username,
+        password
+    } = req.body;
+
+    console.log(req.body);
+
+    res.redirect("/login");
+
 });
 
+// Profile Page
+app.get("/profile", (req, res) => {
+
+    res.render("profile");
+
+});
+
+// Update Password Page
+app.get("/update-password", (req, res) => {
+
+    res.send("Update Password Page");
+
+});
+
+// Bet History Page
+app.get("/history", (req, res) => {
+
+    res.send("Bet History");
+
+});
+
+// Logout
+app.get("/logout", (req, res) => {
+
+    res.redirect("/login");
+
+});
+
+// 404 Page
+app.use((req, res) => {
+
+    res.status(404).send("404 Page Not Found");
+
+});
+
+// Start Server
 app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+
+    console.log(`🚀 Server Running on http://localhost:${PORT}`);
+
 });
