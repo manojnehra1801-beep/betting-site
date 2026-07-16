@@ -13,35 +13,40 @@ app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-/* ===========================
-   ROUTES
-=========================== */
+/* ==========================
+   HOME
+========================== */
 
-// Home
 app.get("/", (req, res) => {
     res.render("index");
 });
 
-// Login Page
+/* ==========================
+   LOGIN
+========================== */
+
 app.get("/login", (req, res) => {
     res.render("login");
 });
 
-// Login Form
 app.post("/login", (req, res) => {
+
     const { email, password } = req.body;
 
-    console.log(email, password);
+    console.log("Login:", email, password);
 
     res.redirect("/");
+
 });
 
-// Signup Page
+/* ==========================
+   SIGNUP
+========================== */
+
 app.get("/signup", (req, res) => {
     res.render("signup");
 });
 
-// Signup Form
 app.post("/signup", (req, res) => {
 
     const {
@@ -52,53 +57,84 @@ app.post("/signup", (req, res) => {
         password
     } = req.body;
 
-    console.log(req.body);
+    console.log({
+        name,
+        mobile,
+        state,
+        username,
+        password
+    });
 
     res.redirect("/login");
 
 });
 
-// Profile Page
+/* ==========================
+   PROFILE
+========================== */
+
 app.get("/profile", (req, res) => {
 
     res.render("profile");
 
 });
 
-// Update Password Page
+/* ==========================
+   BONUS
+========================== */
+
+app.get("/bonus", (req, res) => {
+
+    res.render("bonus");
+
+});
+
+/* ==========================
+   BET HISTORY
+========================== */
+
+app.get("/history", (req, res) => {
+
+    res.render("history");
+
+});
+
+/* ==========================
+   UPDATE PASSWORD
+========================== */
+
 app.get("/update-password", (req, res) => {
 
     res.send("Update Password Page");
 
 });
 
-// Bet History Page
-app.get("/history", (req, res) => {
+/* ==========================
+   LOGOUT
+========================== */
 
-    res.send("Bet History");
-
-});
-
-// Logout
 app.get("/logout", (req, res) => {
 
     res.redirect("/login");
 
 });
 
-// 404 Page
+/* ==========================
+   404
+========================== */
+
 app.use((req, res) => {
 
-    res.status(404).send("404 Page Not Found");
+    res.status(404).send("404 - Page Not Found");
 
 });
 
-// Start Server
+/* ==========================
+   START SERVER
+========================== */
+
 app.listen(PORT, () => {
 
-    console.log(`🚀 Server Running on http://localhost:${PORT}`);
+    console.log(`🚀 Server Running at http://localhost:${PORT}`);
 
-});
-app.get("/bonus", (req, res) => {
-    res.render("bonus");
 });
