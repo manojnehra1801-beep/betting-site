@@ -1,20 +1,214 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Demo Betting</title>
-    <link rel="stylesheet" href="/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BetPay Demo</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#0d1117;
+color:white;
+}
+
+header{
+background:#161b22;
+padding:18px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 2px 10px rgba(0,0,0,.4);
+}
+
+.logo{
+font-size:26px;
+font-weight:bold;
+color:#FFD700;
+}
+
+.balance{
+background:#00c853;
+padding:8px 15px;
+border-radius:30px;
+font-weight:bold;
+}
+
+.container{
+padding:18px;
+}
+
+.live{
+color:#ff3b30;
+font-weight:bold;
+margin-bottom:10px;
+animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+50%{opacity:.3;}
+}
+
+.card{
+background:#161b22;
+padding:18px;
+border-radius:18px;
+margin-bottom:20px;
+box-shadow:0 0 15px rgba(0,229,255,.15);
+}
+
+.teams{
+display:flex;
+justify-content:space-between;
+font-size:22px;
+margin:15px 0;
+}
+
+.odds{
+display:flex;
+gap:10px;
+}
+
+.bet{
+flex:1;
+background:#00e5ff;
+color:black;
+border:none;
+padding:15px;
+font-size:18px;
+font-weight:bold;
+border-radius:12px;
+cursor:pointer;
+}
+
+.bet:hover{
+transform:scale(1.03);
+}
+
+.section{
+margin-top:25px;
+margin-bottom:12px;
+font-size:22px;
+font-weight:bold;
+}
+
+.match{
+background:#202833;
+padding:15px;
+border-radius:12px;
+margin-bottom:12px;
+}
+
+.bottom{
+position:fixed;
+bottom:0;
+width:100%;
+background:#161b22;
+display:flex;
+justify-content:space-around;
+padding:14px;
+font-size:15px;
+}
+
+.bottom div{
+text-align:center;
+}
+
+button{
+transition:.3s;
+}
+</style>
+
 </head>
+
 <body>
 
-<h1>🎮 Demo Betting Site</h1>
+<header>
+<div class="logo">🏆 BETPAY</div>
+<div class="balance">💰 10,000 Coins</div>
+</header>
+
+<div class="container">
+
+<div class="live">🔴 LIVE MATCH</div>
+
+<div class="card">
 
 <h2><%= match.team1 %> vs <%= match.team2 %></h2>
-<p>Status: <%= match.status %></p>
 
-<button><%= match.team1 %> (Odds <%= match.odds1 %>)</button>
-<button><%= match.team2 %> (Odds <%= match.odds2 %>)</button>
+<p style="margin-top:10px;color:#ccc;">
+Demo Match • 18 Overs
+</p>
 
-<p>This is a demo site using virtual betting only.</p>
+<div class="teams">
+<div>🇮🇳 India</div>
+<div>🇦🇺 Australia</div>
+</div>
 
-</body>
-</html>
+<div class="odds">
+
+<button class="bet">
+India
+<br>
+<%= match.odds1 %>
+</button>
+
+<button class="bet">
+Australia
+<br>
+<%= match.odds2 %>
+</button>
+
+</div>
+
+</div>
+
+<div class="section">
+🔥 Trending Matches
+</div>
+
+<div class="match">
+⚽ Brazil vs Argentina
+</div>
+
+<div class="match">
+🏏 England vs Pakistan
+</div>
+
+<div class="match">
+🏀 Lakers vs Celtics
+</div>
+
+<div class="section">
+🏆 Leaderboard
+</div>
+
+<div class="match">
+🥇 Rahul — 45,000 Coins
+</div>
+
+<div class="match">
+🥈 Amit — 41,500 Coins
+</div>
+
+<div class="match">
+🥉 Manoj — 10,000 Coins
+</div>
+
+<br><br><br><br>
+
+</div>
+
+<div class="bottom">
+
+<div>🏠<br>Home</div>
+
+<div>🎮<br>Matches</div>
+
+<div>
