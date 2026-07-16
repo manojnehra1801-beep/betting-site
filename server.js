@@ -9,16 +9,8 @@ app.set("views", path.join(__dirname, "views"));
 
 app.use(express.static(path.join(__dirname, "public")));
 
-const match = {
-  team1: "India",
-  team2: "Australia",
-  odds1: 1.75,
-  odds2: 2.10,
-  status: "Demo Match"
-};
-
 app.get("/", (req, res) => {
-  res.render("index", { match });
+  res.render("index");
 });
 
 app.listen(PORT, () => {
