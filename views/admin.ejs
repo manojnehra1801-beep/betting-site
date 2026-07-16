@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+display:flex;
+background:#0d1117;
+color:#fff;
+}
+
+.sidebar{
+width:250px;
+height:100vh;
+background:#161b22;
+padding:20px;
+position:fixed;
+}
+
+.sidebar h2{
+color:#FFD700;
+margin-bottom:25px;
+text-align:center;
+}
+
+.sidebar a{
+display:block;
+text-decoration:none;
+color:#fff;
+padding:12px;
+margin:8px 0;
+border-radius:8px;
+}
+
+.sidebar a:hover{
+background:#FFD700;
+color:#000;
+}
+
+.main{
+margin-left:250px;
+padding:25px;
+width:100%;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.card{
+background:#161b22;
+padding:20px;
+border-radius:15px;
+text-align:center;
+}
+
+.card h3{
+color:#FFD700;
+margin-bottom:10px;
+}
+
+.card p{
+font-size:28px;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<h2>🏆 ADMIN</h2>
+
+<a href="#">📊 Dashboard</a>
+<a href="#">👥 Users</a>
+<a href="#">🏏 Matches</a>
+<a href="#">🎯 Odds</a>
+<a href="#">🎁 Refer Bonus</a>
+<a href="#">📜 Bet History</a>
+<a href="#">📢 Announcements</a>
+<a href="#">⚙️ Settings</a>
+<a href="/">🏠 Home</a>
+
+</div>
+
+<div class="main">
+
+<h1>Dashboard</h1>
+
+<br>
+
+<div class="cards">
+
+<div class="card">
+<h3>Total Users</h3>
+<p>0</p>
+</div>
+
+<div class="card">
+<h3>Live Matches</h3>
+<p>1</p>
+</div>
+
+<div class="card">
+<h3>Total Bets</h3>
+<p>0</p>
+</div>
+
+<div class="card">
+<h3>Referral Bonus</h3>
+<p>250</p>
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
