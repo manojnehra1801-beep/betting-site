@@ -99,3 +99,6 @@ app.listen(PORT, () => {
     console.log(`🚀 Server Running on http://localhost:${PORT}`);
 
 });
+app.get("/bonus", (req, res) => {
+    res.render("bonus");
+});
