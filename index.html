@@ -1,458 +1,625 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>A Little Question For You ❤️</title><style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-body{
-  font-family:Arial, Helvetica, sans-serif;
-  min-height:100vh;
-  overflow-x:hidden;
-  background:linear-gradient(135deg,#ffdde1,#ee9ca7,#fad0c4);
-  color:#fff;
-}
+  <title>For Nisha ❤️</title>
 
-/* LOADING SCREEN */
-#loader{
-  position:fixed;
-  inset:0;
-  z-index:9999;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  background:linear-gradient(135deg,#ff5f8f,#ff8fab,#ffb3c6);
-  transition:1s;
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-#loader h1{
-  font-size:clamp(32px,7vw,60px);
-  text-align:center;
-  margin-bottom:20px;
-  animation:pulse 1s infinite;
-}
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3, #ffc3d0);
+      color: white;
+    }
 
-.progress-box{
-  width:min(85%,500px);
-  height:22px;
-  background:rgba(255,255,255,.35);
-  border-radius:30px;
-  overflow:hidden;
-  border:2px solid white;
-}
+    /* LOADING SCREEN */
+    #loader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff477e, #ff85a1, #ffb3c6);
+      transition: opacity 0.8s ease;
+    }
 
-#progress{
-  width:1%;
-  height:100%;
-  background:white;
-  border-radius:30px;
-  transition:.08s;
-}
+    #loader h1 {
+      font-size: clamp(28px, 8vw, 55px);
+      text-align: center;
+      margin-bottom: 25px;
+      padding: 0 20px;
+      animation: pulse 1.2s infinite;
+    }
 
-#percent{
-  font-size:30px;
-  font-weight:bold;
-  margin-top:15px;
-}
+    .progress-box {
+      width: min(85%, 500px);
+      height: 24px;
+      background: rgba(255,255,255,0.35);
+      border: 2px solid white;
+      border-radius: 50px;
+      overflow: hidden;
+    }
 
-@keyframes pulse{
-  50%{transform:scale(1.05)}
-}
+    #progress {
+      width: 1%;
+      height: 100%;
+      background: white;
+      border-radius: 50px;
+      transition: width 0.08s linear;
+    }
 
-/* MAIN */
-.container{
-  width:min(92%,600px);
-  margin:auto;
-  padding:25px 0 60px;
-  text-align:center;
-}
+    #percent {
+      margin-top: 18px;
+      font-size: 30px;
+      font-weight: bold;
+    }
 
-.card{
-  display:none;
-  min-height:100vh;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  animation:fadeIn .8s ease;
-}
+    @keyframes pulse {
+      50% {
+        transform: scale(1.05);
+      }
+    }
 
-.card.active{
-  display:flex;
-}
+    /* MAIN CONTAINER */
+    .container {
+      width: min(92%, 650px);
+      margin: auto;
+    }
 
-.box{
-  width:100%;
-  background:rgba(255,255,255,.2);
-  backdrop-filter:blur(15px);
-  border:1px solid rgba(255,255,255,.4);
-  border-radius:30px;
-  padding:35px 20px;
-  box-shadow:0 15px 40px rgba(0,0,0,.15);
-}
+    .card {
+      display: none;
+      min-height: 100vh;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      animation: fadeIn 0.7s ease;
+    }
 
-h1{
-  font-size:clamp(30px,8vw,55px);
-  margin-bottom:20px;
-}
+    .card.active {
+      display: flex;
+    }
 
-p{
-  font-size:clamp(18px,4vw,23px);
-  line-height:1.6;
-  margin-bottom:25px;
-}
+    .box {
+      width: 100%;
+      padding: 35px 22px;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.45);
+      backdrop-filter: blur(15px);
+      box-shadow: 0 15px 45px rgba(0,0,0,0.18);
+    }
 
-button{
-  border:none;
-  border-radius:50px;
-  padding:15px 28px;
-  font-size:18px;
-  font-weight:bold;
-  cursor:pointer;
-  margin:8px;
-  transition:.3s;
-  background:white;
-  color:#ff477e;
-  box-shadow:0 8px 20px rgba(0,0,0,.15);
-}
+    h1 {
+      font-size: clamp(30px, 8vw, 55px);
+      margin-bottom: 20px;
+    }
 
-button:hover{
-  transform:translateY(-4px) scale(1.03);
-}
+    p {
+      font-size: clamp(18px, 4.5vw, 23px);
+      line-height: 1.6;
+      margin-bottom: 22px;
+    }
 
-.yes{
-  background:#ff2e63;
-  color:white;
-}
+    button {
+      border: none;
+      border-radius: 50px;
+      padding: 15px 26px;
+      margin: 7px;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+      background: white;
+      color: #ff2e63;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transition: 0.3s;
+    }
 
-.heart{
-  position:fixed;
-  font-size:25px;
-  animation:floatUp 5s linear forwards;
-  pointer-events:none;
-}
+    button:hover,
+    button:active {
+      transform: translateY(-3px) scale(1.04);
+    }
 
-@keyframes floatUp{
-  0%{
-    transform:translateY(100vh) rotate(0deg);
-    opacity:1;
-  }
-  100%{
-    transform:translateY(-10vh) rotate(360deg);
-    opacity:0;
-  }
-}
+    .yes {
+      background: #ff2e63;
+      color: white;
+    }
 
-@keyframes fadeIn{
-  from{
-    opacity:0;
-    transform:translateY(30px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
+    .big-emoji {
+      font-size: 75px;
+      margin-bottom: 15px;
+      animation: bounce 1.5s infinite;
+    }
 
-.date-input{
-  width:100%;
-  padding:17px;
-  border:none;
-  border-radius:18px;
-  font-size:18px;
-  text-align:center;
-  outline:none;
-  margin:15px 0 20px;
-}
+    @keyframes bounce {
+      50% {
+        transform: translateY(-12px);
+      }
+    }
 
-.big-emoji{
-  font-size:75px;
-  margin-bottom:20px;
-  animation:bounce 1.5s infinite;
-}
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
 
-@keyframes bounce{
-  50%{
-    transform:translateY(-15px);
-  }
-}
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-.selected-date{
-  font-size:20px;
-  font-weight:bold;
-  margin:15px 0;
-}
+    .heart {
+      position: fixed;
+      bottom: -50px;
+      z-index: 1000;
+      pointer-events: none;
+      animation: floatUp 5s linear forwards;
+    }
 
-.sparkle{
-  font-size:28px;
-}
-</style></head><body><!-- LOADING --><div id="loader">
-  <h1>Loading Cuteness... 🥹💕</h1>  <div class="progress-box">
-    <div id="progress"></div>
-  </div>  <div id="percent">1%</div>
-</div><div class="container"><!-- 1 --><section class="card active" id="card1">
-  <div class="box">
-    <div class="big-emoji">😍</div>
-    <h1>You are such a gorgeous girl! ❤️</h1>
-    <p>
-      Honestly... you make everything around you look a little more beautiful. ✨
-    </p><button class="yes" onclick="nextCard(2)">
-  Continue 💕
-</button>
+    @keyframes floatUp {
+      from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+
+      to {
+        transform: translateY(-115vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .date-input {
+      width: 100%;
+      max-width: 400px;
+      padding: 16px;
+      border: none;
+      border-radius: 18px;
+      font-size: 18px;
+      text-align: center;
+      margin: 10px auto 20px;
+      display: block;
+      outline: none;
+      color: #ff2e63;
+    }
+
+    .selected-date {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+
+    strong {
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .small-text {
+      font-size: 15px;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- LOADING SCREEN -->
+  <div id="loader">
+    <h1>Loading Cuteness for NISHA... 🥹💕</h1>
+
+    <div class="progress-box">
+      <div id="progress"></div>
+    </div>
+
+    <div id="percent">1%</div>
+  </div>
+
+
+  <div class="container">
+
+    <!-- CARD 1 -->
+    <section class="card active" id="card1">
+      <div class="box">
+
+        <div class="big-emoji">😍</div>
+
+        <h1>NISHA ❤️</h1>
+
+        <p>
+          You are such a gorgeous girl! ✨🥹❤️
+          <br><br>
+          Seriously... you make everything around you look a little more beautiful.
+        </p>
+
+        <button class="yes" onclick="nextCard(2)">
+          Continue ❤️
+        </button>
+
+      </div>
+    </section>
+
+
+    <!-- CARD 2 -->
+    <section class="card" id="card2">
+      <div class="box">
+
+        <div class="big-emoji">🥺💕</div>
+
+        <h1>NISHA... 🥹❤️</h1>
+
+        <p>
+          Would you give me some of your precious time? ⏳💕
+          <br><br>
+          I promise to make it worth it. 😌❤️
+        </p>
+
+        <button class="yes" onclick="nextCard(3)">
+          Of Course ❤️
+        </button>
+
+        <button onclick="nextCard(3)">
+          Maybe 🙈
+        </button>
+
+      </div>
+    </section>
+
+
+    <!-- CARD 3 COFFEE -->
+    <section class="card" id="card3">
+      <div class="box">
+
+        <div class="big-emoji">☕❤️</div>
+
+        <h1>First Question... 👀</h1>
+
+        <p>
+          NISHA... 🥹💕
+          <br><br>
+          Would you like to go on a
+          <br>
+          <strong>COFFEE DATE ☕❤️</strong>
+          <br>
+          with me?
+        </p>
+
+        <button class="yes" onclick="coffeeYes()">
+          YESSS! ☕😍
+        </button>
+
+        <button id="coffeeNo" onmouseenter="moveNo(this)" onclick="moveNo(this)">
+          No 🙈
+        </button>
+
+      </div>
+    </section>
+
+
+    <!-- CARD 4 DINNER -->
+    <section class="card" id="card4">
+      <div class="box">
+
+        <div class="big-emoji">🍽️💕</div>
+
+        <h1>Wait... 😌❤️</h1>
+
+        <p>
+          Coffee is not enough... 👀
+          <br><br>
+          Would you also like to go for a
+          <br>
+          <strong>DINNER DATE? 🍝❤️</strong>
+          <br><br>
+          Just you, me and some beautiful memories. 🥹💕
+        </p>
+
+        <button class="yes" onclick="dinnerYes()">
+          YES! LET'S GO 😍❤️
+        </button>
+
+        <button id="dinnerNo" onmouseenter="moveNo(this)" onclick="moveNo(this)">
+          Maybe 🙈
+        </button>
+
+      </div>
+    </section>
+
+
+    <!-- CARD 5 CALENDAR -->
+    <section class="card" id="card5">
+      <div class="box">
+
+        <div class="big-emoji">📅❤️</div>
+
+        <h1>Perfect! 😍</h1>
+
+        <p>
+          Now NISHA... ❤️
+          <br>
+          Choose our special date. 🥹💕
+        </p>
+
+        <input
+          type="date"
+          id="datePicker"
+          class="date-input"
+        >
+
+        <button class="yes" onclick="confirmDate()">
+          Confirm Our Date ❤️
+        </button>
+
+        <p class="small-text">
+          I am already excited! 😍☕🍽️
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- FINAL CARD -->
+    <section class="card" id="card6">
+      <div class="box">
+
+        <div class="big-emoji">🥰🚗❤️</div>
+
+        <h1>IT'S A DATE, NISHA! 😍❤️</h1>
+
+        <p id="finalDate"></p>
+
+        <p>
+          Okay beautiful... 🥹❤️
+          <br><br>
+          Be ready in your most
+          <strong>stunning and confident look 😍✨</strong>
+          <br><br>
+          Because...
+          <br>
+          <strong>I WILL PICK YOU UP! 🚗❤️</strong>
+          <br><br>
+          Coffee ☕
+          <br>
+          +
+          <br>
+          Dinner 🍽️
+          <br>
+          +
+          <br>
+          You & Me ❤️
+        </p>
+
+        <button class="yes" onclick="celebrate()">
+          CAN'T WAIT! 😍❤️
+        </button>
+
+      </div>
+    </section>
 
   </div>
-</section><!-- 2 --><section class="card" id="card2">
-  <div class="box">
-    <div class="big-emoji">🥺❤️</div>
-    <h1>ML. 🥹</h1><p>
-  Would you give me some of your precious time? ⏳💕
-  <br>
-  I promise to make it worth it. 😌
-</p>
 
-<button class="yes" onclick="nextCard(3)">
-  Of Course ❤️
-</button>
 
-<button onclick="nextCard(3)">
-  Maybe... 🙈
-</button>
+  <script>
 
-  </div>
-</section><!-- 3 COFFEE --><section class="card" id="card3">
-  <div class="box">
-    <div class="big-emoji">☕💞</div><h1>First Question... 👀</h1>
+    /* LOADING 1% TO 100% */
 
-<p>
-  Would you like to go on a
-  <br>
-  <strong>COFFEE DATE ☕❤️</strong>
-  <br>
-  with me?
-</p>
+    let percent = 1;
 
-<button class="yes" onclick="coffeeYes()">
-  YESSS! ☕😍
-</button>
+    const loading = setInterval(() => {
 
-<button onclick="moveNo(this)">
-  No 🙈
-</button>
+      percent++;
 
-  </div>
-</section><!-- 4 DINNER --><section class="card" id="card4">
-  <div class="box">
-    <div class="big-emoji">🍷🍝❤️</div><h1>Wait... One More Question 😌</h1>
+      document.getElementById("percent").innerText =
+        percent + "%";
 
-<p>
-  After coffee...
-  <br><br>
-  Would you also like to go for a
-  <br>
-  <strong>DINNER DATE? 🍽️💕</strong>
-</p>
+      document.getElementById("progress").style.width =
+        percent + "%";
 
-<button class="yes" onclick="dinnerYes()">
-  YES! LET'S GO 😍
-</button>
+      if (percent >= 100) {
 
-<button onclick="moveNo(this)">
-  Not sure 🙈
-</button>
+        clearInterval(loading);
 
-  </div>
-</section><!-- 5 DATE --><section class="card" id="card5">
-  <div class="box">
-    <div class="big-emoji">📅💕</div><h1>Perfect! 😍</h1>
+        setTimeout(() => {
 
-<p>
-  Now choose our special date... ❤️
-</p>
+          const loader = document.getElementById("loader");
 
-<input
-  type="date"
-  id="datePicker"
-  class="date-input"
->
+          loader.style.opacity = "0";
 
-<div id="selectedDate" class="selected-date"></div>
+          setTimeout(() => {
+            loader.style.display = "none";
+          }, 800);
 
-<button class="yes" onclick="confirmDate()">
-  Confirm Our Date ❤️
-</button>
+        }, 300);
 
-  </div>
-</section><!-- FINAL --><section class="card" id="card6">
-  <div class="box">
-    <div class="big-emoji">🥰🚗❤️</div><h1>IT'S A DATE! 😍💕</h1>
+      }
 
-<p id="finalDate"></p>
+    }, 35);
 
-<p>
-  Okay beautiful... ❤️
-  <br><br>
-  Be ready in your
-  <strong>sexiest / most stunning look 😍✨</strong>
-  <br><br>
-  I will pick you up! 🚗💨❤️
-  <br><br>
-  Coffee ☕ + Dinner 🍽️ + You & Me ❤️
-</p>
 
-<button class="yes" onclick="celebrate()">
-  CAN'T WAIT! 😍❤️
-</button>
+    /* CHANGE CARD */
 
-<p class="sparkle">
-  ✨ 💕 ✨ 💕 ✨
-</p>
+    function nextCard(number) {
 
-  </div>
-</section></div><script>
+      document.querySelectorAll(".card").forEach(card => {
+        card.classList.remove("active");
+      });
 
-/* LOADER 1 TO 100 */
-let percent = 1;
+      document
+        .getElementById("card" + number)
+        .classList.add("active");
 
-const loading = setInterval(() => {
+      createHearts(12);
 
-  percent++;
+    }
 
-  document.getElementById("percent").innerText = percent + "%";
-  document.getElementById("progress").style.width = percent + "%";
 
-  if(percent >= 100){
+    /* COFFEE YES */
 
-    clearInterval(loading);
+    function coffeeYes() {
 
-    setTimeout(() => {
-      document.getElementById("loader").style.opacity = "0";
+      createHearts(25);
 
       setTimeout(() => {
-        document.getElementById("loader").style.display = "none";
-      },1000);
+        nextCard(4);
+      }, 400);
 
-    },400);
-  }
-
-},35);
+    }
 
 
-/* CHANGE CARD */
-function nextCard(number){
+    /* DINNER YES */
 
-  document.querySelectorAll(".card").forEach(card => {
-    card.classList.remove("active");
-  });
+    function dinnerYes() {
 
-  document.getElementById("card" + number).classList.add("active");
-
-  createHearts(12);
-}
-
-
-/* COFFEE YES */
-function coffeeYes(){
-  alert("Yayyy! ☕❤️ Coffee date accepted!");
-  nextCard(4);
-}
-
-
-/* DINNER YES */
-function dinnerYes(){
-  alert("Perfect! 😍 Dinner date too!");
-  nextCard(5);
-}
-
-
-/* DATE CONFIRM */
-function confirmDate(){
-
-  const date = document.getElementById("datePicker").value;
-
-  if(!date){
-    alert("Please select our special date first 🥹❤️");
-    return;
-  }
-
-  const selected = new Date(date + "T00:00:00");
-
-  const formatted = selected.toLocaleDateString("en-IN", {
-    weekday:"long",
-    day:"numeric",
-    month:"long",
-    year:"numeric"
-  });
-
-  document.getElementById("finalDate").innerHTML =
-    "Our special date is:<br><strong>❤️ " +
-    formatted +
-    " ❤️</strong>";
-
-  nextCard(6);
-}
-
-
-/* MOVE NO BUTTON */
-function moveNo(button){
-
-  const x = Math.random() * 180 - 90;
-  const y = Math.random() * 100 - 50;
-
-  button.style.transform =
-    `translate(${x}px, ${y}px)`;
-}
-
-
-/* HEARTS */
-function createHearts(count = 20){
-
-  for(let i=0;i<count;i++){
-
-    setTimeout(() => {
-
-      const heart = document.createElement("div");
-
-      heart.className = "heart";
-
-      const hearts = ["❤️","💕","💖","💗","🥰","✨"];
-
-      heart.innerText =
-        hearts[Math.floor(Math.random()*hearts.length)];
-
-      heart.style.left =
-        Math.random() * 100 + "vw";
-
-      heart.style.fontSize =
-        (20 + Math.random()*30) + "px";
-
-      document.body.appendChild(heart);
+      createHearts(30);
 
       setTimeout(() => {
-        heart.remove();
-      },5000);
+        nextCard(5);
+      }, 400);
 
-    }, i * 120);
-  }
-}
+    }
 
 
-/* FINAL CELEBRATION */
-function celebrate(){
+    /* DATE CONFIRM */
 
-  createHearts(50);
+    function confirmDate() {
 
-  alert(
-    "See you on our date! 😍❤️\nCoffee, Dinner and lots of memories ☕🍽️💕"
-  );
-}
+      const date =
+        document.getElementById("datePicker").value;
+
+      if (!date) {
+
+        alert(
+          "NISHA 🥹❤️ Please select our special date first!"
+        );
+
+        return;
+
+      }
+
+      const selected =
+        new Date(date + "T00:00:00");
+
+      const formatted =
+        selected.toLocaleDateString("en-IN", {
+
+          weekday: "long",
+          day: "numeric",
+          month: "long",
+          year: "numeric"
+
+        });
+
+      document.getElementById("finalDate").innerHTML =
+        "Our special date is:<br><br><strong>❤️ " +
+        formatted +
+        " ❤️</strong>";
+
+      nextCard(6);
+
+      createHearts(40);
+
+    }
 
 
-/* SET MINIMUM DATE TO TODAY */
-const today = new Date().toISOString().split("T")[0];
-document.getElementById("datePicker").min = today;
+    /* RUN AWAY NO BUTTON */
 
-</script></body>
+    function moveNo(button) {
+
+      const x =
+        Math.floor(Math.random() * 250) - 125;
+
+      const y =
+        Math.floor(Math.random() * 120) - 60;
+
+      button.style.position = "relative";
+
+      button.style.transform =
+        `translate(${x}px, ${y}px)`;
+
+    }
+
+
+    /* FLOATING HEARTS */
+
+    function createHearts(count) {
+
+      const emojis = [
+        "❤️",
+        "💕",
+        "💖",
+        "💗",
+        "🥰",
+        "✨",
+        "💘"
+      ];
+
+      for (let i = 0; i < count; i++) {
+
+        setTimeout(() => {
+
+          const heart =
+            document.createElement("div");
+
+          heart.className = "heart";
+
+          heart.innerText =
+            emojis[
+              Math.floor(
+                Math.random() * emojis.length
+              )
+            ];
+
+          heart.style.left =
+            Math.random() * 100 + "vw";
+
+          heart.style.fontSize =
+            20 + Math.random() * 30 + "px";
+
+          document.body.appendChild(heart);
+
+          setTimeout(() => {
+            heart.remove();
+          }, 5000);
+
+        }, i * 100);
+
+      }
+
+    }
+
+
+    /* FINAL CELEBRATION */
+
+    function celebrate() {
+
+      createHearts(70);
+
+      alert(
+        "YAYYYY! 😍❤️\n\nSee you on our date, NISHA! ☕🍽️💕"
+      );
+
+    }
+
+
+    /* ONLY TODAY AND FUTURE DATES */
+
+    const today =
+      new Date().toISOString().split("T")[0];
+
+    document
+      .getElementById("datePicker")
+      .setAttribute("min", today);
+
+  </script>
+
+</body>
 </html>
