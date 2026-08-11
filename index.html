@@ -1,625 +1,667 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>For Nisha ❤️</title>
+<title>For Anisha Ji ❤️</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      min-height: 100vh;
-      overflow-x: hidden;
-      background: linear-gradient(135deg, #ff758c, #ff7eb3, #ffc3d0);
-      color: white;
-    }
+body{
+  min-height:100vh;
+  font-family:Arial, sans-serif;
+  color:white;
+  background:linear-gradient(135deg,#ff4f81,#ff8fab,#ffc2d1);
+  overflow-x:hidden;
+}
 
-    /* LOADING SCREEN */
-    #loader {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #ff477e, #ff85a1, #ffb3c6);
-      transition: opacity 0.8s ease;
-    }
+#loader{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  background:linear-gradient(135deg,#ff477e,#ff85a1);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  transition:opacity .8s;
+}
 
-    #loader h1 {
-      font-size: clamp(28px, 8vw, 55px);
-      text-align: center;
-      margin-bottom: 25px;
-      padding: 0 20px;
-      animation: pulse 1.2s infinite;
-    }
+#loader h1{
+  text-align:center;
+  font-size:clamp(28px,8vw,50px);
+  margin-bottom:25px;
+  padding:20px;
+}
 
-    .progress-box {
-      width: min(85%, 500px);
-      height: 24px;
-      background: rgba(255,255,255,0.35);
-      border: 2px solid white;
-      border-radius: 50px;
-      overflow: hidden;
-    }
+.progressBox{
+  width:85%;
+  max-width:500px;
+  height:23px;
+  border:2px solid white;
+  border-radius:50px;
+  overflow:hidden;
+  background:rgba(255,255,255,.25);
+}
 
-    #progress {
-      width: 1%;
-      height: 100%;
-      background: white;
-      border-radius: 50px;
-      transition: width 0.08s linear;
-    }
+#progress{
+  width:1%;
+  height:100%;
+  background:white;
+  transition:.05s;
+}
 
-    #percent {
-      margin-top: 18px;
-      font-size: 30px;
-      font-weight: bold;
-    }
+#percent{
+  margin-top:15px;
+  font-size:28px;
+  font-weight:bold;
+}
 
-    @keyframes pulse {
-      50% {
-        transform: scale(1.05);
-      }
-    }
+.container{
+  width:min(92%,650px);
+  margin:auto;
+}
 
-    /* MAIN CONTAINER */
-    .container {
-      width: min(92%, 650px);
-      margin: auto;
-    }
+.page{
+  min-height:100vh;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  animation:show .7s ease;
+}
 
-    .card {
-      display: none;
-      min-height: 100vh;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      animation: fadeIn 0.7s ease;
-    }
+.page.active{
+  display:flex;
+}
 
-    .card.active {
-      display: flex;
-    }
+.box{
+  width:100%;
+  padding:35px 22px;
+  border-radius:30px;
+  background:rgba(255,255,255,.18);
+  border:1px solid rgba(255,255,255,.4);
+  backdrop-filter:blur(15px);
+  box-shadow:0 20px 50px rgba(0,0,0,.18);
+}
 
-    .box {
-      width: 100%;
-      padding: 35px 22px;
-      border-radius: 30px;
-      background: rgba(255,255,255,0.18);
-      border: 1px solid rgba(255,255,255,0.45);
-      backdrop-filter: blur(15px);
-      box-shadow: 0 15px 45px rgba(0,0,0,0.18);
-    }
+h1{
+  font-size:clamp(30px,8vw,52px);
+  margin-bottom:20px;
+}
 
-    h1 {
-      font-size: clamp(30px, 8vw, 55px);
-      margin-bottom: 20px;
-    }
+p{
+  font-size:20px;
+  line-height:1.65;
+  margin-bottom:22px;
+}
 
-    p {
-      font-size: clamp(18px, 4.5vw, 23px);
-      line-height: 1.6;
-      margin-bottom: 22px;
-    }
+.emoji{
+  font-size:70px;
+  margin-bottom:15px;
+  animation:bounce 1.5s infinite;
+}
 
-    button {
-      border: none;
-      border-radius: 50px;
-      padding: 15px 26px;
-      margin: 7px;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
-      background: white;
-      color: #ff2e63;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      transition: 0.3s;
-    }
+button{
+  border:none;
+  padding:15px 25px;
+  border-radius:50px;
+  margin:7px;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+  background:white;
+  color:#ff3970;
+  box-shadow:0 8px 20px rgba(0,0,0,.15);
+  transition:.3s;
+}
 
-    button:hover,
-    button:active {
-      transform: translateY(-3px) scale(1.04);
-    }
+button:hover{
+  transform:scale(1.05);
+}
 
-    .yes {
-      background: #ff2e63;
-      color: white;
-    }
+.yes{
+  background:#ff245f;
+  color:white;
+}
 
-    .big-emoji {
-      font-size: 75px;
-      margin-bottom: 15px;
-      animation: bounce 1.5s infinite;
-    }
+.time{
+  background:rgba(255,255,255,.9);
+  color:#ff3970;
+}
 
-    @keyframes bounce {
-      50% {
-        transform: translateY(-12px);
-      }
-    }
+.date{
+  width:100%;
+  max-width:400px;
+  padding:16px;
+  border:none;
+  border-radius:18px;
+  font-size:18px;
+  margin:10px auto 20px;
+  display:block;
+  text-align:center;
+}
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(25px);
-      }
+.heart{
+  position:fixed;
+  bottom:-50px;
+  pointer-events:none;
+  z-index:1000;
+  animation:float 5s linear forwards;
+}
 
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+@keyframes float{
+  from{
+    transform:translateY(0) rotate(0);
+    opacity:1;
+  }
+  to{
+    transform:translateY(-115vh) rotate(360deg);
+    opacity:0;
+  }
+}
 
-    .heart {
-      position: fixed;
-      bottom: -50px;
-      z-index: 1000;
-      pointer-events: none;
-      animation: floatUp 5s linear forwards;
-    }
+@keyframes show{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
 
-    @keyframes floatUp {
-      from {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-      }
+@keyframes bounce{
+  50%{
+    transform:translateY(-12px);
+  }
+}
 
-      to {
-        transform: translateY(-115vh) rotate(360deg);
-        opacity: 0;
-      }
-    }
+.highlight{
+  font-weight:bold;
+  font-size:24px;
+}
 
-    .date-input {
-      width: 100%;
-      max-width: 400px;
-      padding: 16px;
-      border: none;
-      border-radius: 18px;
-      font-size: 18px;
-      text-align: center;
-      margin: 10px auto 20px;
-      display: block;
-      outline: none;
-      color: #ff2e63;
-    }
-
-    .selected-date {
-      font-size: 20px;
-      font-weight: bold;
-      margin: 15px 0;
-    }
-
-    strong {
-      color: #fff;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
-
-    .small-text {
-      font-size: 15px;
-      opacity: 0.9;
-    }
-  </style>
+.small{
+  font-size:15px;
+  opacity:.9;
+}
+</style>
 </head>
 
 <body>
 
-  <!-- LOADING SCREEN -->
-  <div id="loader">
-    <h1>Loading Cuteness for NISHA... 🥹💕</h1>
+<!-- LOADING -->
+<div id="loader">
 
-    <div class="progress-box">
-      <div id="progress"></div>
-    </div>
+  <h1>
+    Loading something special for Anisha Ji... ❤️
+  </h1>
 
-    <div id="percent">1%</div>
+  <div class="progressBox">
+    <div id="progress"></div>
   </div>
 
+  <div id="percent">1%</div>
 
-  <div class="container">
+</div>
 
-    <!-- CARD 1 -->
-    <section class="card active" id="card1">
-      <div class="box">
 
-        <div class="big-emoji">😍</div>
+<div class="container">
 
-        <h1>NISHA ❤️</h1>
+<!-- PAGE 1 -->
+<section class="page active" id="page1">
 
-        <p>
-          You are such a gorgeous girl! ✨🥹❤️
-          <br><br>
-          Seriously... you make everything around you look a little more beautiful.
-        </p>
+<div class="box">
 
-        <button class="yes" onclick="nextCard(2)">
-          Continue ❤️
-        </button>
+  <div class="emoji">🌹</div>
 
-      </div>
-    </section>
+  <h1>Hey Anisha Ji ❤️</h1>
 
+  <p>
+    I made something a little different for you...
+    🥹💕
+  </p>
 
-    <!-- CARD 2 -->
-    <section class="card" id="card2">
-      <div class="box">
+  <p>
+    So please give me a few minutes of your beautiful time.
+  </p>
 
-        <div class="big-emoji">🥺💕</div>
+  <button class="yes" onclick="go(2)">
+    Open it 💌
+  </button>
 
-        <h1>NISHA... 🥹❤️</h1>
+</div>
 
-        <p>
-          Would you give me some of your precious time? ⏳💕
-          <br><br>
-          I promise to make it worth it. 😌❤️
-        </p>
+</section>
 
-        <button class="yes" onclick="nextCard(3)">
-          Of Course ❤️
-        </button>
 
-        <button onclick="nextCard(3)">
-          Maybe 🙈
-        </button>
+<!-- PAGE 2 -->
+<section class="page" id="page2">
 
-      </div>
-    </section>
+<div class="box">
 
+  <div class="emoji">🥹❤️</div>
 
-    <!-- CARD 3 COFFEE -->
-    <section class="card" id="card3">
-      <div class="box">
+  <h1>Anisha Ji...</h1>
 
-        <div class="big-emoji">☕❤️</div>
+  <p>
+    I know you're not saying yes to a relationship.
+  </p>
 
-        <h1>First Question... 👀</h1>
+  <p>
+    And honestly, I don't want to force you.
+    ❤️
+  </p>
 
-        <p>
-          NISHA... 🥹💕
-          <br><br>
-          Would you like to go on a
-          <br>
-          <strong>COFFEE DATE ☕❤️</strong>
-          <br>
-          with me?
-        </p>
+  <p>
+    I just want you to know how I feel.
+  </p>
 
-        <button class="yes" onclick="coffeeYes()">
-          YESSS! ☕😍
-        </button>
+  <button class="yes" onclick="go(3)">
+    Tell me... ❤️
+  </button>
 
-        <button id="coffeeNo" onmouseenter="moveNo(this)" onclick="moveNo(this)">
-          No 🙈
-        </button>
+</div>
 
-      </div>
-    </section>
+</section>
 
 
-    <!-- CARD 4 DINNER -->
-    <section class="card" id="card4">
-      <div class="box">
+<!-- PAGE 3 -->
+<section class="page" id="page3">
 
-        <div class="big-emoji">🍽️💕</div>
+<div class="box">
 
-        <h1>Wait... 😌❤️</h1>
+  <div class="emoji">💗</div>
 
-        <p>
-          Coffee is not enough... 👀
-          <br><br>
-          Would you also like to go for a
-          <br>
-          <strong>DINNER DATE? 🍝❤️</strong>
-          <br><br>
-          Just you, me and some beautiful memories. 🥹💕
-        </p>
+  <h1>Why You?</h1>
 
-        <button class="yes" onclick="dinnerYes()">
-          YES! LET'S GO 😍❤️
-        </button>
+  <p>
+    Because talking to you makes ordinary days
+    feel a little more special.
+  </p>
 
-        <button id="dinnerNo" onmouseenter="moveNo(this)" onclick="moveNo(this)">
-          Maybe 🙈
-        </button>
+  <p>
+    Because your smile can completely change my mood.
+    😊
+  </p>
 
-      </div>
-    </section>
+  <p>
+    And because somewhere along the way...
+    <br>
+    <span class="highlight">
+      I started liking you more than I planned.
+    </span>
+  </p>
 
+  <button class="yes" onclick="go(4)">
+    Continue 💕
+  </button>
 
-    <!-- CARD 5 CALENDAR -->
-    <section class="card" id="card5">
-      <div class="box">
+</div>
 
-        <div class="big-emoji">📅❤️</div>
+</section>
 
-        <h1>Perfect! 😍</h1>
 
-        <p>
-          Now NISHA... ❤️
-          <br>
-          Choose our special date. 🥹💕
-        </p>
+<!-- PAGE 4 -->
+<section class="page" id="page4">
 
-        <input
-          type="date"
-          id="datePicker"
-          class="date-input"
-        >
+<div class="box">
 
-        <button class="yes" onclick="confirmDate()">
-          Confirm Our Date ❤️
-        </button>
+  <div class="emoji">🌙❤️</div>
 
-        <p class="small-text">
-          I am already excited! 😍☕🍽️
-        </p>
+  <h1>One Honest Thing...</h1>
 
-      </div>
-    </section>
+  <p>
+    I don't need you to promise me forever.
+  </p>
 
+  <p>
+    I don't need an answer because you feel pressured.
+  </p>
 
-    <!-- FINAL CARD -->
-    <section class="card" id="card6">
-      <div class="box">
+  <p>
+    I just want to know...
+  </p>
 
-        <div class="big-emoji">🥰🚗❤️</div>
+  <p class="highlight">
+    Would you give us a chance? ❤️
+  </p>
 
-        <h1>IT'S A DATE, NISHA! 😍❤️</h1>
+  <button class="yes" onclick="yesAnswer()">
+    Yes... Let's try ❤️
+  </button>
 
-        <p id="finalDate"></p>
+  <button class="time" onclick="timeAnswer()">
+    I need more time 🤍
+  </button>
 
-        <p>
-          Okay beautiful... 🥹❤️
-          <br><br>
-          Be ready in your most
-          <strong>stunning and confident look 😍✨</strong>
-          <br><br>
-          Because...
-          <br>
-          <strong>I WILL PICK YOU UP! 🚗❤️</strong>
-          <br><br>
-          Coffee ☕
-          <br>
-          +
-          <br>
-          Dinner 🍽️
-          <br>
-          +
-          <br>
-          You & Me ❤️
-        </p>
+</div>
 
-        <button class="yes" onclick="celebrate()">
-          CAN'T WAIT! 😍❤️
-        </button>
+</section>
 
-      </div>
-    </section>
 
-  </div>
+<!-- MORE TIME -->
+<section class="page" id="page5">
 
+<div class="box">
 
-  <script>
+  <div class="emoji">🤍</div>
 
-    /* LOADING 1% TO 100% */
+  <h1>That's Okay, Anisha Ji.</h1>
 
-    let percent = 1;
+  <p>
+    Take all the time you need.
+  </p>
 
-    const loading = setInterval(() => {
+  <p>
+    I respect your feelings and your decision.
+  </p>
 
-      percent++;
+  <p>
+    No pressure. No forcing.
+    Just know that my feelings are genuine. ❤️
+  </p>
 
-      document.getElementById("percent").innerText =
-        percent + "%";
+  <button onclick="go(6)">
+    Maybe a coffee someday? ☕
+  </button>
 
-      document.getElementById("progress").style.width =
-        percent + "%";
+</div>
 
-      if (percent >= 100) {
+</section>
 
-        clearInterval(loading);
 
-        setTimeout(() => {
+<!-- YES -->
+<section class="page" id="page6">
 
-          const loader = document.getElementById("loader");
+<div class="box">
 
-          loader.style.opacity = "0";
+  <div class="emoji">😍❤️</div>
 
-          setTimeout(() => {
-            loader.style.display = "none";
-          }, 800);
+  <h1>You Said YES! 🥹</h1>
 
-        }, 300);
+  <p>
+    Anisha Ji, you just made my day.
+  </p>
 
-      }
+  <p>
+    So let's start with something simple...
+    <br><br>
+    <strong>YOU + ME + COFFEE ☕❤️</strong>
+  </p>
 
-    }, 35);
+  <button class="yes" onclick="go(7)">
+    Plan Our First Date 📅
+  </button>
 
+</div>
 
-    /* CHANGE CARD */
+</section>
 
-    function nextCard(number) {
 
-      document.querySelectorAll(".card").forEach(card => {
-        card.classList.remove("active");
-      });
+<!-- DATE -->
+<section class="page" id="page7">
 
-      document
-        .getElementById("card" + number)
-        .classList.add("active");
+<div class="box">
 
-      createHearts(12);
+  <div class="emoji">📅💕</div>
 
-    }
+  <h1>Choose Our Day</h1>
 
+  <p>
+    Pick a date that works for you. ❤️
+  </p>
 
-    /* COFFEE YES */
+  <input
+    type="date"
+    id="datePicker"
+    class="date"
+  >
 
-    function coffeeYes() {
+  <button class="yes" onclick="confirmDate()">
+    This Date ❤️
+  </button>
 
-      createHearts(25);
+</div>
+
+</section>
+
+
+<!-- FINAL -->
+<section class="page" id="page8">
+
+<div class="box">
+
+  <div class="emoji">🥰🚗❤️</div>
+
+  <h1>It's A Date! ❤️</h1>
+
+  <p id="finalDate"></p>
+
+  <p>
+    Coffee first ☕
+    <br>
+    Dinner afterwards 🍽️
+    <br>
+    And hopefully...
+    <br><br>
+    <strong>
+      lots of beautiful memories together. ❤️
+    </strong>
+  </p>
+
+  <p>
+    Be ready in your most stunning look 😍✨
+    <br><br>
+    I'll pick you up. 🚗❤️
+  </p>
+
+  <button class="yes" onclick="celebrate()">
+    I Can't Wait! 😍
+  </button>
+
+</div>
+
+</section>
+
+</div>
+
+
+<script>
+
+/* LOADING 1 TO 100 */
+
+let percent = 1;
+
+const loading = setInterval(() => {
+
+  percent++;
+
+  document.getElementById("percent").innerText =
+    percent + "%";
+
+  document.getElementById("progress").style.width =
+    percent + "%";
+
+  if(percent >= 100){
+
+    clearInterval(loading);
+
+    setTimeout(() => {
+
+      document.getElementById("loader").style.opacity = "0";
 
       setTimeout(() => {
-        nextCard(4);
-      }, 400);
+        document.getElementById("loader").style.display = "none";
+      },800);
 
-    }
+    },400);
+  }
+
+},35);
 
 
-    /* DINNER YES */
+/* PAGE NAVIGATION */
 
-    function dinnerYes() {
+function go(number){
 
-      createHearts(30);
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.remove("active");
+  });
+
+  document
+    .getElementById("page" + number)
+    .classList.add("active");
+
+  hearts(12);
+}
+
+
+/* YES */
+
+function yesAnswer(){
+
+  hearts(35);
+
+  setTimeout(() => {
+    go(6);
+  },500);
+
+}
+
+
+/* MORE TIME */
+
+function timeAnswer(){
+
+  hearts(8);
+
+  go(5);
+
+}
+
+
+/* DATE */
+
+function confirmDate(){
+
+  const date =
+    document.getElementById("datePicker").value;
+
+  if(!date){
+
+    alert(
+      "Please choose a date first ❤️"
+    );
+
+    return;
+  }
+
+  const selected =
+    new Date(date + "T00:00:00");
+
+  const formatted =
+    selected.toLocaleDateString("en-IN",{
+
+      weekday:"long",
+      day:"numeric",
+      month:"long",
+      year:"numeric"
+
+    });
+
+  document.getElementById("finalDate").innerHTML =
+    "Our first date: <br><br>" +
+    "<strong>❤️ " +
+    formatted +
+    " ❤️</strong>";
+
+  go(8);
+
+  hearts(50);
+
+}
+
+
+/* FLOATING HEARTS */
+
+function hearts(amount){
+
+  const symbols = [
+    "❤️",
+    "💕",
+    "💖",
+    "💗",
+    "💘",
+    "✨",
+    "🥰"
+  ];
+
+  for(let i=0;i<amount;i++){
+
+    setTimeout(() => {
+
+      const heart =
+        document.createElement("div");
+
+      heart.className = "heart";
+
+      heart.innerText =
+        symbols[
+          Math.floor(Math.random()*symbols.length)
+        ];
+
+      heart.style.left =
+        Math.random()*100 + "vw";
+
+      heart.style.fontSize =
+        (20 + Math.random()*30) + "px";
+
+      document.body.appendChild(heart);
 
       setTimeout(() => {
-        nextCard(5);
-      }, 400);
+        heart.remove();
+      },5000);
 
-    }
+    },i*80);
 
+  }
 
-    /* DATE CONFIRM */
-
-    function confirmDate() {
-
-      const date =
-        document.getElementById("datePicker").value;
-
-      if (!date) {
-
-        alert(
-          "NISHA 🥹❤️ Please select our special date first!"
-        );
-
-        return;
-
-      }
-
-      const selected =
-        new Date(date + "T00:00:00");
-
-      const formatted =
-        selected.toLocaleDateString("en-IN", {
-
-          weekday: "long",
-          day: "numeric",
-          month: "long",
-          year: "numeric"
-
-        });
-
-      document.getElementById("finalDate").innerHTML =
-        "Our special date is:<br><br><strong>❤️ " +
-        formatted +
-        " ❤️</strong>";
-
-      nextCard(6);
-
-      createHearts(40);
-
-    }
+}
 
 
-    /* RUN AWAY NO BUTTON */
+/* FINAL */
 
-    function moveNo(button) {
+function celebrate(){
 
-      const x =
-        Math.floor(Math.random() * 250) - 125;
+  hearts(80);
 
-      const y =
-        Math.floor(Math.random() * 120) - 60;
+  alert(
+    "See you soon, Anisha Ji! ❤️\n\n" +
+    "Coffee ☕ + Dinner 🍽️ + Beautiful memories 💕"
+  );
 
-      button.style.position = "relative";
-
-      button.style.transform =
-        `translate(${x}px, ${y}px)`;
-
-    }
+}
 
 
-    /* FLOATING HEARTS */
+/* PREVENT PAST DATES */
 
-    function createHearts(count) {
+const today =
+  new Date().toISOString().split("T")[0];
 
-      const emojis = [
-        "❤️",
-        "💕",
-        "💖",
-        "💗",
-        "🥰",
-        "✨",
-        "💘"
-      ];
+document
+  .getElementById("datePicker")
+  .min = today;
 
-      for (let i = 0; i < count; i++) {
-
-        setTimeout(() => {
-
-          const heart =
-            document.createElement("div");
-
-          heart.className = "heart";
-
-          heart.innerText =
-            emojis[
-              Math.floor(
-                Math.random() * emojis.length
-              )
-            ];
-
-          heart.style.left =
-            Math.random() * 100 + "vw";
-
-          heart.style.fontSize =
-            20 + Math.random() * 30 + "px";
-
-          document.body.appendChild(heart);
-
-          setTimeout(() => {
-            heart.remove();
-          }, 5000);
-
-        }, i * 100);
-
-      }
-
-    }
-
-
-    /* FINAL CELEBRATION */
-
-    function celebrate() {
-
-      createHearts(70);
-
-      alert(
-        "YAYYYY! 😍❤️\n\nSee you on our date, NISHA! ☕🍽️💕"
-      );
-
-    }
-
-
-    /* ONLY TODAY AND FUTURE DATES */
-
-    const today =
-      new Date().toISOString().split("T")[0];
-
-    document
-      .getElementById("datePicker")
-      .setAttribute("min", today);
-
-  </script>
+</script>
 
 </body>
 </html>
